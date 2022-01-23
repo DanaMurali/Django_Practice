@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book, BookNumber
+from .models import Book, BookNumber, Character
 
 
 # Register your models here.
@@ -22,3 +22,4 @@ class BookAdmin(admin.ModelAdmin):
 
 # we have to register our new model:
 admin.site.register(BookNumber)
+admin.site.register(Character)
