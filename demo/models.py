@@ -9,3 +9,8 @@ class Book(models.Model):
     published = models.DateField(blank=True, null=True, default=None)
     is_published = models.BooleanField(default=False)
     cover = models.ImageField(upload_to='covers/', blank=True)
+
+     # we can specify how our class can be converted to string because the admin is not human readable
+
+    def __str__(self):
+        return self.title
