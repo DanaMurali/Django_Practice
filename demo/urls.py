@@ -6,6 +6,7 @@ from .views import BookViewSet
 
 # we have a new variable router
 router = routers.DefaultRouter()
+# this BookViewset brings more than just a list
 router.register('books', BookViewSet)
 
 urlpatterns = [
