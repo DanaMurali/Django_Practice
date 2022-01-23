@@ -31,7 +31,7 @@ Each application has been added automatically to our project and we can use it s
 
 In models.py file in demo:
 We can store some information our database. We can create some class based models.
-# we created a new object Book which will have a title with a max length of 36.
+We created a new object Book which will have a title with a max length of 36.
 class Book(models.Model):
     title = models.CharField(max_length=36)
 python3 manage.py makemigrations -> but no changes will be detected
