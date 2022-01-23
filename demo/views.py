@@ -3,17 +3,24 @@
 # from django.views import View
 from .models import Book
 from rest_framework import viewsets
-from .serializers import BookSerializer
+from .serializers import BookSerializer, MiniBookSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 class BookViewSet(viewsets.ModelViewSet):
-    serializer_class = BookSerializer
+    serializer_class = MiniBookSerializer
     queryset = Book.objects.all()
     # have to pass in as a tuple so it doesn't take it as one value.
     authentication_classes = (TokenAuthentication,)
     # this overrides the settings.py where we say allow any
     permission_classes = (IsAuthenticated,)
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = BookSerializer(instance)
+        return Response(serializer.data)
+
 
 # Now we have a get function inside class
 # class Another(View):

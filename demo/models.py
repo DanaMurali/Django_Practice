@@ -26,3 +26,9 @@ class Character(models.Model):
     name = models.CharField(max_length=30)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='characters')
 
+# many to many relationship
+class Author(models.Model):
+    firstname = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
+    books = models.ManyToManyField(Book, related_name='authors')
+
